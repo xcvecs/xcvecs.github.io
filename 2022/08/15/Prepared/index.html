@@ -6,11 +6,15 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="scans 熟练spring系开发平台：springmvc，springboot，springcloud 熟练使用mybatis，mybatisplus，熟练编写sql语句，熟悉版本管理工具，熟悉linux命令。 Redis 熟悉redis，熟悉redis客户端应用，了解jedis客户端工作流程。熟练使用spring-data-redis客户端 Mq 了解消息队列，了解spring集成amqp 了">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2022/08/15/Prepared/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="scans 熟练spring系开发平台：springmvc，springboot，springcloud 熟练使用mybatis，mybatisplus，熟练编写sql语句，熟悉版本管理工具，熟悉linux命令。 Redis 熟悉redis，熟悉redis客户端应用，了解jedis客户端工作流程。熟练使用spring-data-redis客户端 Mq 了解消息队列，了解spring集成amqp 了">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-15T12:34:18.769Z">
+<meta property="article:modified_time" content="2022-08-15T12:36:15.325Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -69,61 +73,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-filtering" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/29/filtering/" class="article-date">
-  <time class="dt-published" datetime="2022-08-29T15:19:32.115Z" itemprop="datePublished">2022-08-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Basic-Filters"><a href="#Basic-Filters" class="headerlink" title="Basic Filters"></a>Basic Filters</h1><hr>
-<p>Maxwell can be configured to filter out updates from specific tables.  This is controlled<br>by the <code>--filter</code> command line flag.</p>
-<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--filter = &#x27;exclude: foodb.*, include: foodb.tbl, include: foodb./table_\d+/&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>This example tells Maxwell to suppress all updates that happen on <code>foodb</code>, except for updates<br>to <code>tbl</code> and any table in foodb matching the regexp <code>/table_\d+/</code>.</p>
-<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h2><p>Filter options are evaluated in the order specified, so in this example we<br>suppress everything except updates in the <code>db1</code> database.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--filter = &#x27;exclude: *.*, include: db1.*&#x27;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="Column-Filters"><a href="#Column-Filters" class="headerlink" title="Column Filters"></a>Column Filters</h1><hr>
-<p>Maxwell can also include&#x2F;exclude based on column values:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--filter = &#x27;exclude: db.tbl.col = reject&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>will reject any row in <code>db.tbl</code> that contains <code>col</code> and where the stringified value of “col” is “reject”.<br>Column filters are ignored if the specified column is not present, so <code>--filter = &#39;exclude: *.*.col_a = *&#39;</code><br>will exclude updates to any table that contains <code>col_a</code>, but include every other table.</p>
-<h1 id="Blacklisting"><a href="#Blacklisting" class="headerlink" title="Blacklisting"></a>Blacklisting</h1><hr>
-<p>In rare cases, you may wish to tell Maxwell to completely ignore a database or<br>table, including schema changes.  In general, don’t use this.  If you must use this:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--filter = &#x27;blacklist: bad_db.*&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>Note that once Maxwell has been running with a table or database marked as<br>blacklisted, you <em>must</em> continue to run Maxwell with that table or database<br>blacklisted or else Maxwell will halt. If you want to stop<br>blacklisting a table or database, you will have to drop the maxwell schema first.<br>Also note that this is the feature I most regret writing.</p>
-<h1 id="Javascript-Filters"><a href="#Javascript-Filters" class="headerlink" title="Javascript Filters"></a>Javascript Filters</h1><hr>
-<p>If you need more flexibility than the native filters provide, you can write a small chunk of<br>javascript for Maxwell to pass each row through with <code>--javascript FILE</code>.  This file should contain<br>at least a javascript function named <code>process_row</code>.  This function will be passed a <a href=""><code>WrappedRowMap</code></a><br>object and is free to make filtering and data munging decisions:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function process_row(row) &#123;</span><br><span class="line">	if ( row.database == &quot;test&quot; &amp;&amp; row.table == &quot;bar&quot; ) &#123;</span><br><span class="line">		var username = row.data.get(&quot;username&quot;);</span><br><span class="line">		if ( username == &quot;osheroff&quot; )</span><br><span class="line">			row.suppress();</span><br><span class="line"></span><br><span class="line">		row.data.put(&quot;username&quot;, username.toUpperCase());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>There’s a longer example here: <a target="_blank" rel="noopener" href="https://github.com/zendesk/maxwell/blob/master/src/example/filter.js">https://github.com/zendesk/maxwell/blob/master/src/example/filter.js</a>.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/29/filtering/" data-id="cl7ewrr7t0000moa12pdp774a" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Prepared" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-Prepared" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/08/15/Prepared/" class="article-date">
   <time class="dt-published" datetime="2022-08-15T12:34:18.769Z" itemprop="datePublished">2022-08-15</time>
@@ -207,11 +157,23 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/29/filtering/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
+</article>
 
 
 </section>

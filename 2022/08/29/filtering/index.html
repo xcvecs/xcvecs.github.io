@@ -6,11 +6,15 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Basic Filters Maxwell can be configured to filter out updates from specific tables.  This is controlledby the --filter command line flag. Example 11--filter &#x3D; &amp;#x27;exclude: foodb.*, include: foodb.tb">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2022/08/29/filtering/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Basic Filters Maxwell can be configured to filter out updates from specific tables.  This is controlledby the --filter command line flag. Example 11--filter &#x3D; &amp;#x27;exclude: foodb.*, include: foodb.tb">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-29T15:19:32.115Z">
+<meta property="article:modified_time" content="2022-07-11T00:55:13.651Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -69,9 +73,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-filtering" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-filtering" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/08/29/filtering/" class="article-date">
   <time class="dt-published" datetime="2022-08-29T15:19:32.115Z" itemprop="datePublished">2022-08-29</time>
@@ -118,100 +120,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Prepared" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/15/Prepared/" class="article-date">
-  <time class="dt-published" datetime="2022-08-15T12:34:18.769Z" itemprop="datePublished">2022-08-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="scans"><a href="#scans" class="headerlink" title="scans"></a>scans</h1><ul>
-<li>熟练spring系开发平台：springmvc，springboot，springcloud</li>
-<li>熟练使用mybatis，mybatisplus，熟练编写sql语句，熟悉版本管理工具，熟悉linux命令。</li>
-<li>Redis 熟悉redis，熟悉redis客户端应用，了解jedis客户端工作流程。熟练使用spring-data-redis客户端</li>
-<li>Mq 了解消息队列，了解spring集成amqp 了解高性能消息队列中间件rabbitmq</li>
-<li>熟悉 jwt开源库：jjwt，auth0</li>
-<li>了解安全框架 spring-security,</li>
-<li>了解binlog客户端 (maxwell)&#x2F;&#x2F;</li>
-<li>了解websocket 为低负载高实时特性的简易聊天应用编写过后端服务。</li>
-<li>了解http客户端：resTemplate，spring-cloud-openfeign</li>
-<li>了解spring cloud gateway</li>
-<li>了解Docker，了解docker 署 java应用</li>
-</ul>
-<h2 id="项目部分"><a href="#项目部分" class="headerlink" title="项目部分"></a>项目部分</h2><h3 id="jedis客户端"><a href="#jedis客户端" class="headerlink" title="jedis客户端"></a>jedis客户端</h3><p>项目介绍：jedis客户端基于RESP（redis序列化协议）<br>该通讯协议用于客户端与服务端通信协议。</p>
-<ol>
-<li>相关技术<ol>
-<li>基于 resp protocol spec</li>
-<li>对象池</li>
-<li>基本Socket</li>
-<li>基本io</li>
-</ol>
-</li>
-<li>技术-业务（功能）描述<ol>
-<li>基本储存 获取，{所有的客户端命令及服务端响应，均按照resp协议序列化为二进制流}</li>
-<li>支持redis客户端命令：</li>
-<li>ssl 校验</li>
-<li>连接池</li>
-</ol>
-</li>
-</ol>
-<h3 id="商城"><a href="#商城" class="headerlink" title="商城"></a>商城</h3><p>项目介绍：</p>
-<ol>
-<li><p>相关技术</p>
-<ol>
-<li>mybatis mybatisplus （数据源，dy sql），基本sql</li>
-<li>aop（Spring aop，aspectj） ，反射、注解、apache beanutils。</li>
-<li>openapi2、swagger2(knife4j)，spring2.6。openapi3，springdoc</li>
-<li>jwt</li>
-<li>描述基础编码能力与技巧</li>
-</ol>
-</li>
-<li><p>技术-业务描述</p>
-<ol>
-<li>配置数据源， mybatis基本用法、结果映射、dynamic sql ，mbg mbgplugin</li>
-<li>aop记录操作日志。</li>
-<li>接口文档。</li>
-<li>熟悉 jwt 熟练使用jwt库</li>
-<li>熟悉基本java stream。</li>
-</ol>
-</li>
-</ol>
-<h3 id="今日消息"><a href="#今日消息" class="headerlink" title="今日消息"></a>今日消息</h3><p>项目介绍：</p>
-<ol>
-<li>相关技术<ol>
-<li>redis缓存。redis分布式锁。</li>
-<li>binlog客户端应用。</li>
-<li>基于spring security 开发鉴权授权，了解Oauth2</li>
-<li>mq，http客户端</li>
-</ol>
-</li>
-</ol>
+  
+    <a href="/2022/08/15/Prepared/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/15/Prepared/" data-id="cl7ewrr800001moa1g6pqc66i" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
